@@ -697,6 +697,8 @@ is_bad_selfatari_slow(struct board *b, enum stone color, coord_t to)
 	return true;
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Warray-bounds"
 
 coord_t
 selfatari_cousin(struct board *b, enum stone color, coord_t coord, group_t *bygroup)
@@ -760,3 +762,5 @@ found:;
 	}
 	return pass;
 }
+
+#pragma GCC diagnostic pop

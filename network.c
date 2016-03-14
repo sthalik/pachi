@@ -52,7 +52,7 @@ port_listen(char *port, int max_connections)
 	server_addr.sin_port = htons(atoi(port));     
 	server_addr.sin_addr.s_addr = INADDR_ANY; 
 
-	const int val = 1;
+	const char val = 1;
 	if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &val, sizeof(val)))
 		die("setsockopt");
 	if (bind(sock, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1)
@@ -197,6 +197,7 @@ log_thread(void *arg)
 		fflush(stderr);
 		open_log_connection(info);
 	}
+	return NULL;
 }
 
 /* Open the log connection on the given port, redirect stderr to it,
