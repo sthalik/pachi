@@ -10,7 +10,10 @@
 # (XXX: For now, only the mingw target is supported on Windows.
 # Patches for others are welcome!)
 
-# WIN=1
+WIN=1
+CC=gcc
+LD=$(CC)
+AR=gcc-ar
 
 # Do you compile on MacOS/X instead of Linux? Please note that the
 # performance may not be optimal.
